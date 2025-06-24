@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word Frequency Analyzer</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <h1>🧠 Word Frequency Analyzer</h1>
+    <form method="POST">
+      <label>Enter your sentence:</label><br />
+      <textarea name="text" required></textarea><br /><br />
+      <button type="submit">Analyze</button>
+    </form>
+
+    {% if analysis %}
+    <div class="result">
+      <h3>🔤😉 Word Frequencies:</h3>
+      <ul>
+        {% for word, count in analysis.freq.items() %}
+        <li>{{ word }}: {{ count }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>🔁 Words Repeated More Than Once:</h3>
+      <ul>
+        {% if analysis.repeated %} {% for word, count in
+        analysis.repeated.items() %}
+        <li>{{ word }} appears {{ count }} times</li>
+        {% endfor %} {% else %}
+        <li>None</li>
+        {% endif %}
+      </ul>
+
+      <h3>📊 Sorted Word Frequency:</h3>
+      <ul>
+        {% for word, count in analysis.sorted_freq %}
+        <li>{{ word }} → {{ count }}</li>
+        {% endfor %}
+      </ul>
+
+      <h3>🔝 Most Common Word:</h3>
+      <p>{{ analysis.most_common[0] }} → {{ analysis.most_common[1] }}</p>
+
+      <h3>🔻 Least Common Word:</h3>
+      <p>{{ analysis.least_common[0] }} → {{ analysis.least_common[1] }}</p>
+    </div>
+    {% endif %}
+  </body>
+</html>
