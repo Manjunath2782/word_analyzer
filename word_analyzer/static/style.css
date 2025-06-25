@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,7 +13,6 @@ body {
   line-height: 1.6;
 }
 
-/* Heading */
 h1 {
   text-align: center;
   color: #007bff;
@@ -21,7 +20,7 @@ h1 {
   margin-bottom: 30px;
 }
 
-/* Form Styling */
+
 form {
   background-color: #fff;
   max-width: 800px;
@@ -71,7 +70,7 @@ button:hover {
   background-color: #218838;
 }
 
-/* Results Section */
+
 .result {
   max-width: 800px;
   margin: 40px auto;
@@ -101,14 +100,14 @@ button:hover {
   font-size: 1rem;
 }
 
-/* Paragraphs in result */
+
 .result p {
   font-size: 1rem;
   color: #495057;
   margin-top: 10px;
 }
 
-/* Responsive Styling */
+
 @media (max-width: 768px) {
   body {
     padding: 20px 10px;
